@@ -1,0 +1,41 @@
+{
+  "name": "dark",
+  "version": "1.0.0",
+  "description": "Password/Secret Management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint --cache ./",
+    "start": "DEBUG=dark-* ./node_modules/.bin/nodemon index.js",
+    "webpack": "node ./node_modules/webpack/bin/webpack.js -p --w"
+  },
+  "author": "thanhson1085",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "css-loader": "^0.27.3",
+    "ejs": "^2.5.6",
+    "express": "^4.14.0",
+    "express-validator": "^3.1.2",
+    "jsonwebtoken": "^7.2.1",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "sequelize": "^3.30.2",
+    "sqlite3": "^3.1.8",
+    "style-loader": "^0.13.2",
+    "vue": "^2.1.10",
+    "vue-router": "2.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-plugin-filenames": "^1.1.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "nodemon": "^1.11.0",
+    "vue-loader": "^11.0.0",
+    "vue-template-compiler": "^2.1.10",
+    "webpack": "^2.2.1",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-env": "^1.1.10"
+  }
+}
