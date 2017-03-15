@@ -1,7 +1,6 @@
 'use strict';
 const express = require('express'),
   db = require('../../models'),
-  utils = require('../../helpers/utils'),
   os = require('os'),
   moment = require('moment'),
   router = express.Router();

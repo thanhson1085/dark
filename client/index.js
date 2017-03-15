@@ -1,24 +1,28 @@
 var Vue = require('vue');
 var VueRouter = require('vue-router');
-var HomePage = require('./components/Home.Page.vue');
+var App = require('./App.vue');
+import VueProgressBar from 'vue-progressbar'
+
+Vue.use(VueProgressBar, {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '2px'
+})
 
 Vue.use(VueRouter);
 
 const RouterViewContainer = {
-  template: `
-    <div>
-      <slot></slot>
-    </div>
-  `
+  template: '<div> <slot></slot> </div>'
 }
 const routes = [
-  { path: '/', component: HomePage,
+  { path: '/', component: App,
     children: [{
       path: ':id',
       component: RouterViewContainer
     }]
   }
 ]
+
 
 const router = new VueRouter({
   mode: 'history',

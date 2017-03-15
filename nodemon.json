@@ -1,4 +1,4 @@
 {
   "ignore": [".git/*", ".gitignore", ".eslintcache", "client/*"],
-  "exec": "npm run lint && npm run webpack && node"
+  "exec": "npm run lint && npm run webpack & node"
 }
