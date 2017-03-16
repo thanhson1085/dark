@@ -1,8 +1,10 @@
 var Vue = require('vue');
 var VueRouter = require('vue-router');
 var App = require('./App.vue');
+import KeenUI from 'keen-ui';
 import VueProgressBar from 'vue-progressbar'
 
+Vue.use(KeenUI);
 Vue.use(VueProgressBar, {
     color: 'rgb(143, 255, 199)',
     failedColor: 'red',

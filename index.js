@@ -4,9 +4,9 @@ const express = require('express');
 const app = require('./server')
 var debug = require('debug')('dark-server')
 
-app.use('/images', express.static('./client/images'));
-app.use('/css', express.static('./client/css'));
-app.use('/js', express.static('./client/js'));
+app.use('/images', express.static('./client/dist/images'));
+app.use('/css', express.static('./client/dist/css'));
+app.use('/js', express.static('./client/dist/js'));
 
 // start server
 const server = app.listen(3000, '0.0.0.0', function () {
