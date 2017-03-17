@@ -1,6 +1,5 @@
 <template>
     <div id="app" class="keen-docs">
-        <vue-progress-bar></vue-progress-bar>
         <sidebar class="is-desktop"></sidebar>
 
         <transition name="transition-fade">
@@ -27,64 +26,72 @@
                         @click="showSidebar = true"
                     ></ui-icon-button>
 
-                    <h1 class="keen-docs-content__toolbar-title">{{ $route.meta.title }}</h1>
+                    <h1 class="keen-docs-content__toolbar-title">Secrets Keys</h1>
 
                     <a
                         class="keen-docs-content__toolbar-action"
                         rel="noopener"
                         target="_blank"
-
                         :href="'https://github.com/JosephusPaye/Keen-UI/blob/master/' + $route.meta.sourceUrl"
-
-                        v-if="$route.meta.sourceUrl"
                     >View Source</a>
                 </div>
             </div>
 
             <div class="keen-docs-content__page-content" ref="pageContent">
-                  aaaa
+              <section class="page page--ui-alert">
+                <h2 class="page__title">Add New Key</h2>
+                <div class="page__examples">
+                  <ui-textbox
+                  icon="vpn_key"
+                  label="Password"
+                  placeholder="Enter a new secret key"
+                  type="password"
+                  v-model="textbox7"
+                  ></ui-textbox>
+                  <ui-button color="primary" icon="refresh" :icon-position="iconPosition" :size="size" type="secondary">Generate Again</ui-button>
+                  <ui-button color="primary" icon="content_copy" :icon-position="iconPosition" :size="size" type="secondary">Copy</ui-button>
+                </div>
+              </section>
             </div>
         </section>
+        <vue-progress-bar></vue-progress-bar>
     </div>
 </template>
 
 <script>
 import Sidebar from './components/Sidebar.vue';
-import {UiIconButton} from 'keen-ui';
+import {UiIconButton, UiAlert, UiTextbox, UiButton} from 'keen-ui';
 
 export default {
-    data() {
-        return {
-            showSidebar: false,
-            description: 'Keen UI - A lightweight collection of essential UI components written with Vue and inspired by Material Design.'
-        };
-    },
-
-    watch: {
-        '$route'() {
-            this.updatePageTitle();
-
-            this.$nextTick(() => {
-                window.Prism.highlightAll();
-                this.$refs.pageContent.scrollTop = 0;
-                this.showSidebar = false;
-            });
-        }
-    },
-
-    mounted() {
-        this.updatePageTitle();
-    },
-
-    methods: {
-        updatePageTitle() {
-            document.title = this.$route.meta.title + ' | ' + this.description;
-        }
-    },
-
-    components: {
-        Sidebar,
-        UiIconButton
+  data() {
+    return {
+      showAlert1: true,
+      showSidebar: false
+    };
+  },
+  watch: {
+    '$route'() {
+      this.$nextTick(() => {
+        window.Prism.highlightAll();
+        this.$refs.pageContent.scrollTop = 0;
+        this.showSidebar = false;
+      });
     }
+  },
+  created() {
+    this.$Progress.start();
+  },
+  mounted() {
+    this.$Progress.finish();
+  },
+  methods: {
+  },
+  components: {
+    Sidebar,
+    UiIconButton,
+    UiButton,
+    UiTextbox,
+    UiAlert
+  }
 };
 </script>

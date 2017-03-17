@@ -26,21 +26,11 @@
 
         <div class="keen-docs-sidebar__scrollable">
             <div class="keen-docs-sidebar__description">
-                <p>A lightweight collection of essential UI components written with Vue.js and inspired by Material Design.</p>
-                <p>Created by <a rel="noopener" target="_blank" href="https://twitter.com/JosephusPaye">Josephus Paye II</a>.</p>
+                <p>Save your passwords in the right way.</p>
             </div>
-
-            <div class="keen-docs-sidebar__version-select">
-                <ui-select
-                    :options="['0.8.9', '1.0.0']"
-                    @select="onVersionSelect"
-                    v-model="version"
-                >Version</ui-select>
-            </div>
-
             <ul class="keen-docs-sidebar__menu">
                 <li class="keen-docs-sidebar__menu-section">
-                    <div class="keen-docs-sidebar__menu-section-header">Usage</div>
+                    <div class="keen-docs-sidebar__menu-section-header">Secret Keys</div>
 
                     <ul class="keen-docs-sidebar__menu-section-links">
                         <li>
@@ -49,7 +39,9 @@
                                 href="https://github.com/JosephusPaye/Keen-UI/tree/master#keen-ui"
                                 rel="noopener"
                                 target="_blank"
-                            >Getting Started <ui-icon>open_in_new</ui-icon></a>
+                                >Add New <ui-icon>add</ui-icon></a>
+                        </li>
+                        <li>
                         </li>
 
                         <li>
@@ -58,13 +50,13 @@
                                 href="https://github.com/JosephusPaye/Keen-UI/blob/master/docs/Customization.md#customization"
                                 rel="noopener"
                                 target="_blank"
-                            >Customization <ui-icon>open_in_new</ui-icon></a>
+                                >List All <ui-icon>list</ui-icon></a>
                         </li>
                     </ul>
                 </li>
 
                 <li class="keen-docs-sidebar__menu-section">
-                    <div class="keen-docs-sidebar__menu-section-header">Usage</div>
+                    <div class="keen-docs-sidebar__menu-section-header">Tags</div>
 
                     <ul class="keen-docs-sidebar__menu-section-links">
                         <li>
@@ -73,7 +65,7 @@
                                 href="https://github.com/JosephusPaye/Keen-UI/tree/master#keen-ui"
                                 rel="noopener"
                                 target="_blank"
-                            >Getting Started <ui-icon>open_in_new</ui-icon></a>
+                            >Getting Started</a>
                         </li>
                     </ul>
                 </li>
