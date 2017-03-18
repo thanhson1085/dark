@@ -50,7 +50,20 @@
                   ></ui-textbox>
                   <ui-button color="primary" icon="refresh" :icon-position="iconPosition" :size="size" type="secondary">Generate Again</ui-button>
                   <ui-button color="primary" icon="content_copy" :icon-position="iconPosition" :size="size" type="secondary">Copy</ui-button>
+                  <ui-textbox
+                      enforce-maxlength
+                      help="Maximum 256 characters"
+                      icon="face"
+                      label="Description"
+                      placeholder="Link, Site Name, Site Description"
+
+                      :multi-line="true"
+                      :maxlength="256"
+                      v-model="textbox15"
+                  ></ui-textbox>
+                  <ui-fileupload multiple name="file10" color="primary" type="secondary"></ui-fileupload>
                 </div>
+                <ui-button color="primary" icon="add" :icon-position="iconPosition" :size="size">Save</ui-button>
               </section>
             </div>
         </section>
@@ -60,13 +73,14 @@
 
 <script>
 import Sidebar from './components/Sidebar.vue';
-import {UiIconButton, UiAlert, UiTextbox, UiButton} from 'keen-ui';
+import {UiFileUpload, UiIconButton, UiAlert, UiTextbox, UiButton} from 'keen-ui';
 
 export default {
   data() {
     return {
       showAlert1: true,
-      showSidebar: false
+      showSidebar: false,
+      textbox15: ''
     };
   },
   watch: {
@@ -91,7 +105,8 @@ export default {
     UiIconButton,
     UiButton,
     UiTextbox,
-    UiAlert
+    UiAlert,
+    UiFileUpload
   }
 };
 </script>
