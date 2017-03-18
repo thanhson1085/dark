@@ -50,6 +50,20 @@
                   ></ui-textbox>
                   <ui-button color="primary" icon="refresh" :icon-position="iconPosition" :size="size" type="secondary">Generate Again</ui-button>
                   <ui-button color="primary" icon="content_copy" :icon-position="iconPosition" :size="size" type="secondary">Copy</ui-button>
+                  <ui-slider icon="volume_up" show-marker v-model="slider3"></ui-slider>
+                  <div class="page__demo-group">
+                      <ui-modal ref="modal6" title="With footer">
+                          Hi there, World. What's happening?
+                          <h4 class="page__demo-title">With marker</h4>
+
+                          <div slot="footer">
+                              <ui-button color="primary">Say Hi</ui-button>
+                              <ui-button @click="closeModal('modal6')">Close</ui-button>
+                          </div>
+                      </ui-modal>
+
+                      <ui-button @click="openModal('modal6')">With footer</ui-button>
+                  </div>
                   <ui-textbox
                       enforce-maxlength
                       help="Maximum 256 characters"
@@ -73,14 +87,15 @@
 
 <script>
 import Sidebar from './components/Sidebar.vue';
-import {UiFileUpload, UiIconButton, UiAlert, UiTextbox, UiButton} from 'keen-ui';
+import {UiSlider, UiFileUpload, UiIconButton, UiAlert, UiTextbox, UiButton} from 'keen-ui';
 
 export default {
   data() {
     return {
       showAlert1: true,
       showSidebar: false,
-      textbox15: ''
+      textbox15: '',
+      slider3: 60
     };
   },
   watch: {
@@ -99,6 +114,15 @@ export default {
     this.$Progress.finish();
   },
   methods: {
+   openModal(ref) {
+     this.$refs[ref].open();
+   },
+   closeModal(ref) {
+     this.$refs[ref].close();
+   },
+   resetSliders() {
+      this.slider3 = 60;
+   }
   },
   components: {
     Sidebar,
@@ -106,6 +130,7 @@ export default {
     UiButton,
     UiTextbox,
     UiAlert,
+    UiSlider,
     UiFileUpload
   }
 };
