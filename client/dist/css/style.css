@@ -4079,3 +4079,14 @@ body[modality=keyboard] .ui-snackbar__action-button:focus {
     margin-right: 1rem;
     position: relative;
 }
+.row {
+  padding-bottom: 20px;
+}
+.row .col-md-6 {
+  width: 50%;
+}
+@media screen and (max-width:767px) {
+  .row .col-md-6 {
+    width: 100%;
+  }
+}

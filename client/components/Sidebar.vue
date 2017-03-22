@@ -1,7 +1,7 @@
 <template>
     <aside class="keen-docs-sidebar">
         <div class="keen-docs-sidebar__header">
-            <span class="keen-docs-sidebar__header-brand">Keen UI</span>
+            <span class="keen-docs-sidebar__header-brand">P2</span>
 
             <a
                 class="keen-docs-sidebar__header-version"
@@ -26,11 +26,11 @@
 
         <div class="keen-docs-sidebar__scrollable">
             <div class="keen-docs-sidebar__description">
-                <p>Save your passwords in the right way.</p>
+                <p>The true password is a string nobody can not remmember.</p>
             </div>
             <ul class="keen-docs-sidebar__menu">
                 <li class="keen-docs-sidebar__menu-section">
-                    <div class="keen-docs-sidebar__menu-section-header">Secret Keys</div>
+                    <div class="keen-docs-sidebar__menu-section-header">Passwords</div>
 
                     <ul class="keen-docs-sidebar__menu-section-links">
                         <li>

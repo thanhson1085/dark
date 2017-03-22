@@ -26,7 +26,7 @@
                         @click="showSidebar = true"
                     ></ui-icon-button>
 
-                    <h1 class="keen-docs-content__toolbar-title">Secrets Keys</h1>
+                    <h1 class="keen-docs-content__toolbar-title">Passwords</h1>
 
                     <a
                         class="keen-docs-content__toolbar-action"
@@ -39,45 +39,69 @@
 
             <div class="keen-docs-content__page-content" ref="pageContent">
               <section class="page page--ui-alert">
-                <h2 class="page__title">Add New Key</h2>
+                <h2 class="page__title">Create a new password</h2>
                 <div class="page__examples">
-                  <ui-textbox
-                  icon="vpn_key"
-                  label="Password"
-                  placeholder="Enter a new secret key"
-                  type="password"
-                  v-model="textbox7"
-                  ></ui-textbox>
-                  <ui-button color="primary" icon="refresh" :icon-position="iconPosition" :size="size" type="secondary">Generate Again</ui-button>
-                  <ui-button color="primary" icon="content_copy" :icon-position="iconPosition" :size="size" type="secondary">Copy</ui-button>
-                  <ui-slider icon="volume_up" show-marker v-model="slider3"></ui-slider>
-                  <div class="page__demo-group">
-                      <ui-modal ref="modal6" title="With footer">
-                          Hi there, World. What's happening?
-                          <h4 class="page__demo-title">With marker</h4>
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ui-textbox
+                        icon="vpn_key"
+                        label="Password"
+                        placeholder="Enter a new secret key"
+                        type="password"
+                        v-model="textbox7"
+                        ></ui-textbox>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ui-button color="primary" icon="refresh" :icon-position="iconPosition" :size="size" type="secondary">Generate Again</ui-button>
+                        <ui-button color="primary" icon="content_copy" :icon-position="iconPosition" :size="size" type="secondary">Copy</ui-button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <ui-slider show-marker v-model="slider3"></ui-slider>Password Length
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="page__demo-group">
+                          <ui-switch v-model="includeSymbols">Include Symbols, e.g. @#$%</ui-switch>
+                          <ui-switch v-model="includeNumbers">Include Numbers, e.g. 123456</ui-switch>
+                          <ui-switch v-model="includeLowercaseCharacters">Include Lowercase Characters, e.g. abcdefgh</ui-switch>
+                          <ui-switch v-model="includeUppercaseCharacters">Include Uppercase Characters, e.g. ABCDEFGH</ui-switch>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ui-textbox
+                            enforce-maxlength
+                            help="Maximum 256 characters"
+                            icon="face"
+                            label="Description"
+                            placeholder="Link, Site Name, Site Description"
 
-                          <div slot="footer">
-                              <ui-button color="primary">Say Hi</ui-button>
-                              <ui-button @click="closeModal('modal6')">Close</ui-button>
-                          </div>
-                      </ui-modal>
-
-                      <ui-button @click="openModal('modal6')">With footer</ui-button>
+                            :multi-line="true"
+                            :maxlength="256"
+                            v-model="textbox15"
+                        ></ui-textbox>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ui-fileupload multiple name="file10" color="primary" type="secondary"></ui-fileupload>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <ui-button color="primary" icon="add" :icon-position="iconPosition" :size="size">Save</ui-button>
+                      </div>
+                    </div>
+                        
                   </div>
-                  <ui-textbox
-                      enforce-maxlength
-                      help="Maximum 256 characters"
-                      icon="face"
-                      label="Description"
-                      placeholder="Link, Site Name, Site Description"
-
-                      :multi-line="true"
-                      :maxlength="256"
-                      v-model="textbox15"
-                  ></ui-textbox>
-                  <ui-fileupload multiple name="file10" color="primary" type="secondary"></ui-fileupload>
                 </div>
-                <ui-button color="primary" icon="add" :icon-position="iconPosition" :size="size">Save</ui-button>
               </section>
             </div>
         </section>
@@ -87,12 +111,15 @@
 
 <script>
 import Sidebar from './components/Sidebar.vue';
-import {UiSlider, UiFileUpload, UiIconButton, UiAlert, UiTextbox, UiButton} from 'keen-ui';
 
 export default {
   data() {
     return {
       showAlert1: true,
+      includeSymbols: true,
+      includeNumbers: true,
+      includeLowercaseCharacters: true,
+      includeUppercaseCharacters: true,
       showSidebar: false,
       textbox15: '',
       slider3: 60
@@ -125,13 +152,7 @@ export default {
    }
   },
   components: {
-    Sidebar,
-    UiIconButton,
-    UiButton,
-    UiTextbox,
-    UiAlert,
-    UiSlider,
-    UiFileUpload
+    Sidebar
   }
 };
 </script>
