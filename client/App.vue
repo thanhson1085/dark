@@ -47,21 +47,21 @@
                         <ui-textbox
                         icon="vpn_key"
                         label="Password"
-                        placeholder="Enter a new secret key"
-                        type="password"
-                        v-model="textbox7"
+                        placeholder="Enter a new password"
+                        type="text"
+                        v-model="password"
                         ></ui-textbox>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <ui-button color="primary" icon="refresh" :icon-position="iconPosition" :size="size" type="secondary">Generate Again</ui-button>
+                        <ui-button color="primary" @click="generatePassword" icon="refresh" :icon-position="iconPosition" :size="size" type="secondary">Generate Again</ui-button>
                         <ui-button color="primary" icon="content_copy" :icon-position="iconPosition" :size="size" type="secondary">Copy</ui-button>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-6">
-                        <ui-slider show-marker v-model="slider3"></ui-slider>Password Length
+                        <ui-slider show-marker v-model="passwordLength"></ui-slider>Password Length
                       </div>
                     </div>
                     <div class="row">
@@ -122,7 +122,8 @@ export default {
       includeUppercaseCharacters: true,
       showSidebar: false,
       textbox15: '',
-      slider3: 60
+      passwordLength: 16,
+      password: ''
     };
   },
   watch: {
@@ -136,20 +137,46 @@ export default {
   },
   created() {
     this.$Progress.start();
+    this.generatePassword();
   },
   mounted() {
     this.$Progress.finish();
   },
   methods: {
-   openModal(ref) {
-     this.$refs[ref].open();
-   },
-   closeModal(ref) {
-     this.$refs[ref].close();
-   },
-   resetSliders() {
-      this.slider3 = 60;
-   }
+    openModal(ref) {
+      this.$refs[ref].open();
+    },
+    closeModal(ref) {
+      this.$refs[ref].close();
+    },
+    resetSliders() {
+      this.passwordLength = 16;
+    },
+    generatePassword() {
+      const lowercaseCharacters = 'qwertyuiopasdfghjklzxcvbnm';
+      const uppercaseCharacters = 'QWERTYUIOPASDFGHJKLZXCVBNM';
+      const symbols = '@#$%';
+      const numbers = '1234567890';
+      const randoms = [];
+      if (this.includeSymbols) {
+        randoms.push(symbols);
+      }
+      if (this.includeNumbers) {
+        randoms.push(numbers);
+      }
+      if (this.includeLowercaseCharacters) {
+        randoms.push(lowercaseCharacters);
+      }
+      if (this.includeUppercaseCharacters) {
+        randoms.push(uppercaseCharacters);
+      }
+      this.password = '';
+      for (var i=0; i < this.passwordLength; i++) {
+        const a = randoms[Math.floor(Math.random() * randoms.length)];
+        const c = a.charAt(Math.floor(Math.random() * a.length));
+        this.password += c;
+      }
+    }
   },
   components: {
     Sidebar
