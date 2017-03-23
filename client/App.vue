@@ -111,11 +111,10 @@
 
 <script>
 import Sidebar from './components/Sidebar.vue';
-
+ 
 export default {
   data() {
     return {
-      showAlert1: true,
       includeSymbols: true,
       includeNumbers: true,
       includeLowercaseCharacters: true,
