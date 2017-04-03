@@ -96,7 +96,7 @@
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <ui-button color="primary" icon="add" :icon-position="iconPosition" :size="size">Save</ui-button>
+                        <ui-button @click="submit()" color="primary" icon="add" :icon-position="iconPosition" :size="size">Save</ui-button>
                       </div>
                     </div>
                         
@@ -115,7 +115,7 @@ import Sidebar from './components/Sidebar.vue';
 export default {
   data() {
     return {
-      includeSymbols: true,
+      includeSymbols: false,
       includeNumbers: true,
       includeLowercaseCharacters: true,
       includeUppercaseCharacters: true,
@@ -175,6 +175,15 @@ export default {
         const c = a.charAt(Math.floor(Math.random() * a.length));
         this.password += c;
       }
+    },
+    submit() {
+      this.$http.post('/api/v1/posts/create').then(response => {
+        // get body data
+        console.log('response', response);
+      }, response => {
+        // error callback
+        console.log('test response', response);
+      });
     }
   },
   components: {
