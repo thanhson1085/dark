@@ -7,12 +7,15 @@ const express = require('express'),
 
 // Create a new POST API
 router.post('/create', function(req, res, next) {
-  db.Post.save({
+  db.Post.create({
     secret: req.body.secret,
+    name: req.body.name,
     description: req.body.description
   }).then(() => {
     return res.json({});
-  }).catch();
+  }).catch((e) => {
+    next(e);
+  });
 
 });
 

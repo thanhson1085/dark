@@ -47,9 +47,8 @@
                         <li>
                             <a
                                 class="keen-docs-sidebar__menu-item"
-                                href="https://github.com/JosephusPaye/Keen-UI/blob/master/docs/Customization.md#customization"
+                                href="#list-secrets"
                                 rel="noopener"
-                                target="_blank"
                                 >List All <ui-icon>list</ui-icon></a>
                         </li>
                     </ul>

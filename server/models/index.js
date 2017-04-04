@@ -6,7 +6,10 @@ var fs = require('fs'),
   sequelize = null,
   db = {};
 
-sequelize = new Sequelize('', '', '', {dialect: 'sqlite', storage: './data/db.sqlite'});
+sequelize = new Sequelize('', '', '', {
+  dialect: 'sqlite',
+  storage: path.join(__dirname, '..', './data/db.sqlite')
+});
 
 fs.readdirSync(__dirname)
   .filter(function(file){
